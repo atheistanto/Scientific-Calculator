@@ -1,3 +1,6 @@
+import math as algebra
+
+
 # Functions for the program
 def arithmetic(a, d, flag=0):
     n = int(input("Enter total no of terms: "))
@@ -18,7 +21,7 @@ def arithmetic(a, d, flag=0):
         elif n >= 1:
             tn = a + (n - 1) * d
             print(f"{n}th term of the H.P= {1/tn}\r")
-            Sum = n * ((a[0] + tn) / 2)
+            Sum = (1 / d) * algebra.log10((2 * a + (2*n - 1) * d)/(2 * a - d)) * 2.303
             print(f"Sum of H.P = {Sum}")
             # print(f"H.M = {Sum/n}")
 
@@ -82,35 +85,6 @@ def secondDifference(t0, a0, a, d):
         print(f"\n{n}th term of the sequence does not exist.")
 
 
-def sum_nSquares():
-    n = int(input(print("Enter total no. of terms: ")))
-    print(f"tn = {pow(n, 2)}")
-    print(f"Sum = {(n * (n + 1) * (2 * n + 1)) / 6}")
-
-
-def sum_nCube():
-    n = int(input(print("Enter total no. of terms: ")))
-    print(f"tn = {pow(n, 3)}")
-    print(f"Sum= {pow((n * (n + 1)) / 6, 2)}")
-
-
-def firstRatio(a, ro, r):
-    return
-
-
-def AGP(sequence, diff, r):
-    n = int(input("Enter total no of terms: "))
-    if n >= 1:
-        tn = (sequence[0] + (n - 1) * diff) * pow(r, n-1)
-        print(f"\n{n}th term of the sequence= {tn}")
-        if r < 1:
-            Sum = sequence[0]/(1 - r) + (diff * r(1 - pow(r, n-1)) / pow((1 - r), 2))
-            print(f"\nSum of the sequence= {Sum}")
-    elif n <= 0:
-        print("\nSum of the sequence = 0 \t Sine, there are no terms to compute sum. ")
-        print(f"\n{n}th term of the sequence does not exist.")
-
-
 # Code Execution starts here
 def main():
     # raw = input("1. AGP \n\t2. Other series\nEnter your option no.: ")
@@ -122,7 +96,6 @@ def main():
     secondDiff = []
     harmonicTerms = []
     harmonicDiff = []
-    squareTerm = []
     # Fetching Input Sequence of numbers
     series = input(f"Enter six terms of your sequence: ")
     series = series.split(',')
@@ -154,7 +127,7 @@ def main():
 
             if harmonicDiff.count(harmonicDiff[0]) == 5:
                 print("The entered series is a harmonic progression.")
-                arithmetic(terms, 1)
+                arithmetic(terms[0], harmonicDiff[0], 1)
 
             else:
                 # First Difference in A.P
@@ -173,23 +146,9 @@ def main():
 
                     if difference.count(difference[0]) == 3:
                         print("The second difference of the entered series is in A.P.")
-                        secondDifference(terms, difference, firstDiff, secondDiff)
+                        secondDifference(terms[0], difference[0], firstDiff[0], secondDiff[0])
                     else:
-                        # First ratio in G.P:-
-                        for count in range(1, 6):
-                            firstratio
-                        if
-                        else:
-                            # Arithmetico Geometric Progression(A.G.P)
-                            for count in range(1, 6):
-                                print("I've failed")
-                            if difference.count() == 5:
-                                print("\nThe entered sequence is an Arithmetico Geometric Progression.")
-                                AGP(terms, difference[0], ratio)
-
-                            else:
-
-                                print(f"\nSorry!!! your entered sequence does not match any of our series.")
+                        print(f"\nSorry!!! your entered sequence does not match any of our series.")
 
 
 main()
